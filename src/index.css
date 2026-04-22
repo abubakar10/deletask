@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  background: #020617;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(96, 165, 250, 0.35);
+}
+
+/* Auth / dark-theme inputs: avoid bright autofill and default white backgrounds */
+.auth-field {
+  color: #f1f5f9;
+  background-color: rgb(2 6 23 / 0.85);
+  border: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.auth-field::placeholder {
+  color: rgb(148 163 184);
+}
+
+.auth-field:hover {
+  border-color: rgb(255 255 255 / 0.18);
+}
+
+.auth-field:focus {
+  outline: none;
+  border-color: rgb(96 165 250 / 0.55);
+  box-shadow: 0 0 0 1px rgb(96 165 250 / 0.35);
+}
+
+.auth-field:-webkit-autofill,
+.auth-field:-webkit-autofill:hover,
+.auth-field:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f1f5f9;
+  -webkit-box-shadow: 0 0 0 1000px rgb(2 6 23) inset;
+  box-shadow: 0 0 0 1000px rgb(2 6 23) inset;
+  transition: background-color 99999s ease-out;
+}
