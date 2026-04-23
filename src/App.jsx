@@ -11,24 +11,30 @@ import ForTaskersPage from './pages/ForTaskersPage'
 import FaqPage from './pages/FaqPage'
 import NotFoundPage from './pages/NotFoundPage'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <PageLayout />,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: 'browse', element: <BrowseTasksPage /> },
-      { path: 'how-it-works', element: <HowItWorksPage /> },
-      { path: 'for-taskers', element: <ForTaskersPage /> },
-      { path: 'faq', element: <FaqPage /> },
-      { path: 'about', element: <AboutPage /> },
-      { path: 'contact', element: <ContactPage /> },
-      { path: 'login', element: <LoginPage /> },
-      { path: 'signup', element: <SignupPage /> },
-      { path: '*', element: <NotFoundPage /> },
-    ],
-  },
-])
+const baseUrl = import.meta.env.BASE_URL ?? '/'
+const routerBasename = baseUrl === '/' ? undefined : baseUrl.replace(/\/$/, '')
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <PageLayout />,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: 'browse', element: <BrowseTasksPage /> },
+        { path: 'how-it-works', element: <HowItWorksPage /> },
+        { path: 'for-taskers', element: <ForTaskersPage /> },
+        { path: 'faq', element: <FaqPage /> },
+        { path: 'about', element: <AboutPage /> },
+        { path: 'contact', element: <ContactPage /> },
+        { path: 'login', element: <LoginPage /> },
+        { path: 'signup', element: <SignupPage /> },
+        { path: '*', element: <NotFoundPage /> },
+      ],
+    },
+  ],
+  routerBasename ? { basename: routerBasename } : {},
+)
 
 function App() {
   return <RouterProvider router={router} />

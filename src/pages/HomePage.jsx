@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import AnimatedSection from '../components/AnimatedSection'
-import { browseTasks, homeCategories, popularTasks, reviews, trustStats, valuePillars } from '../data/siteContent'
+import clientPortrait from '../assets/Client Image.png'
+import taskerPortrait from '../assets/Tasker Story.png'
+import {
+  browseTasks,
+  homeCategories,
+  popularTasks,
+  reviews,
+  trustStats,
+  userStoriesIntro,
+  userStoryCards,
+  valuePillars,
+} from '../data/siteContent'
 
 function HomePage() {
   const MotionDiv = motion.div
@@ -145,6 +156,50 @@ function HomePage() {
               <p className="mt-2 text-sm text-slate-400">{cat.desc}</p>
             </article>
           ))}
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="inline-flex items-center gap-2 rounded-full border border-purple-400/25 bg-purple-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-purple-100">
+            <span className="text-base text-orange-300" aria-hidden>
+              ★
+            </span>
+            {userStoriesIntro.hint}
+          </p>
+          <p className="mt-3 text-sm italic text-slate-500">{userStoriesIntro.disclaimer}</p>
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {userStoryCards.map((story) => {
+            const imageSrc = story.id === 'client' ? clientPortrait : taskerPortrait
+            return (
+              <article
+                key={story.id}
+                className={`flex flex-col overflow-hidden rounded-3xl border bg-slate-900/60 p-6 shadow-lg shadow-black/20 sm:p-8 ${story.borderClass}`}
+              >
+                <div className="mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50">
+                  <img
+                    src={imageSrc}
+                    alt={story.id === 'client' ? 'Samir N, Deletask client' : 'Markus V, chef and Deletask tasker'}
+                    className="aspect-square w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-white">{story.title}</h3>
+                <div className="mt-4 space-y-3 text-left text-sm leading-relaxed text-slate-300">
+                  {story.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <blockquote className="mt-5 border-l-2 border-white/15 pl-4 text-left text-sm italic text-slate-200">
+                  “{story.quote}”
+                </blockquote>
+                <p className="mt-4 text-left text-sm font-medium text-slate-400">{story.signature}</p>
+              </article>
+            )
+          })}
         </div>
       </AnimatedSection>
 

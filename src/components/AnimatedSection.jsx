@@ -5,10 +5,10 @@ function AnimatedSection({ children, className = '' }) {
 
   return (
     <MotionSection
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      initial={{ y: 18 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, amount: 0.08, margin: '0px 0px 160px 0px' }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
       className={className}
     >
       {children}

@@ -200,6 +200,36 @@ export const browseTasks = [
   },
 ]
 
+export const userStoriesIntro = {
+  hint: 'Click the highlighted tasks to see other user stories',
+  disclaimer: 'The user stories are only examples for showcasing the platform.',
+}
+
+export const userStoryCards = [
+  {
+    id: 'client',
+    title: 'Client story: Samir N',
+    borderClass: 'border-orange-300/45 ring-1 ring-orange-400/20',
+    paragraphs: [
+      'I wanted to surprise my partner with a proper steak night, but I always overcook the meat. I posted a small “teach me to cook” task and picked a chef with great reviews.',
+      'We booked a two-hour session at home. He walked me through seasoning, pan heat, and resting the steak step by step—no jargon, just clear instructions.',
+    ],
+    quote: 'She was seriously impressed. Totally worth it.',
+    signature: '— Samir N',
+  },
+  {
+    id: 'tasker',
+    title: 'Tasker story: Markus V',
+    borderClass: 'border-blue-300/45 ring-1 ring-blue-400/20',
+    paragraphs: [
+      'Samir’s request was simple: learn the basics and finish with a restaurant-style plate. I brought ingredients, kept the pace relaxed, and made sure he did the hands-on work.',
+      'Teaching is part of my week whenever it fits my schedule. This one was fun, fast, and the payout landed right after the client approved the task.',
+    ],
+    quote: 'It’s always fun with cooking. Samir nailed it and I got a nice dinner and a review.',
+    signature: '— Markus V, Chef',
+  },
+]
+
 export const homeCategories = [
   { title: 'Moving & delivery', desc: 'Furniture, boxes, same-day help when plans change.', tag: 'Physical' },
   { title: 'Home & cleaning', desc: 'Deep cleans, seasonal refreshes, and handover-ready spaces.', tag: 'Physical' },
